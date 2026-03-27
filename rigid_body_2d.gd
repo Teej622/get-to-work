@@ -3,6 +3,8 @@ extends RigidBody2D
 @onready var power_bar = %PowerBar
 @onready var pivot = %PowerPivot
 
+@onready var arrow = %Arrow
+
 @export var stop_threshold = 50
 @export var strength = 10
 
@@ -13,7 +15,7 @@ var power_bar_length = 1.5
 const RADIUS = 50
 
 func _ready():
-	power_bar.hide()
+	hide_ui()
 	
 func _physics_process(delta: float) -> void:
 	if is_charging:
@@ -22,10 +24,13 @@ func _physics_process(delta: float) -> void:
 		power_bar.value = clamp(dist / power_bar_length,0,100)
 		pivot.look_at(mouse_pos)
 		
-	#Changing power bar colour based on intensity
-	var fill_stylebox: StyleBoxFlat = power_bar.get_theme_stylebox("fill")
-	fill_stylebox.bg_color = Color(1, 1 - (power_bar.value / 100), 0.0, 1.0)
-	fill_stylebox.border_color = fill_stylebox.bg_color / 2
+	#Changing power bar and arrow colour based on intensity
+	var power_fill: StyleBoxFlat = power_bar.get_theme_stylebox("fill")
+	power_fill.bg_color = Color(1, 1 - (power_bar.value / 100), 0.0, 1.0)
+	power_fill.border_color = power_fill.bg_color / 2
+	
+	var arrow_fill: Sprite2D = arrow.get_child(0)
+	arrow_fill.modulate = Color(power_fill.bg_color)
 	
 	#Stop hamster if velocy < stop_threshold
 	if linear_velocity.length() < stop_threshold and linear_velocity.length() > 0:
@@ -49,13 +54,22 @@ func _input(event: InputEvent) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		is_charging = true
-		power_bar.show()
+		show_ui()
 		
 func shoot():
 	is_charging = false
-	power_bar.hide()
+	hide_ui()
 	shots += 1
 	
 	var dir = (global_position - get_global_mouse_position()).normalized()
 	var force = power_bar.value * strength
 	apply_central_impulse(dir * force)
+	
+func hide_ui():
+	power_bar.hide()
+	arrow.hide()
+	
+func show_ui():
+	power_bar.show()
+	arrow.show()
+	
