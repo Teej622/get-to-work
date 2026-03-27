@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cxcxog67kobk4"]
+
+[ext_resource type="PackedScene" uid="uid://cwcxrv0g2idnh" path="res://scenes/hamster_ball.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cpiewa65p1ql0" path="res://scenes/car.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=1105203042]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1676683278]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
+position = Vector2(588, 287)
+
+[node name="Car" parent="." unique_id=1962945219 instance=ExtResource("2_yqjtg")]
+position = Vector2(189, 399)

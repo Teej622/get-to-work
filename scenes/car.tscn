@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpiewa65p1ql0"]
+
+[ext_resource type="Texture2D" uid="uid://b6skiok8ig7x0" path="res://assets/sprites/shitter-car.png" id="1_c35m8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2eu"]
+size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50v30"]
+size = Vector2(7, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtldb"]
+size = Vector2(30, 8)
+
+[node name="Car" type="StaticBody2D" unique_id=1962945219]
+texture_filter = 1
+scale = Vector2(6, 6)
+
+[node name="ShitterCar" type="Sprite2D" parent="." unique_id=1477021650]
+texture = ExtResource("1_c35m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104541337]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_qt2eu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=503871898]
+position = Vector2(-9.5, 6.5)
+shape = SubResource("RectangleShape2D_50v30")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=897581074]
+position = Vector2(9.5, 6.5)
+shape = SubResource("RectangleShape2D_50v30")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=2136520720]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jtldb")
