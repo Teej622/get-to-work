@@ -48,6 +48,7 @@ func _on_next_stage_btn_pressed() -> void:
 		pass
 	%ScoreScreen.visible = false
 	shot_history.append(hamster_ball.shots)
+	hamster_ball.shots = 0
 	shot_counter_update()
 	stage_handler()
 	
