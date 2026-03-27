@@ -1,2 +1,13 @@
-# go-to-town-jam
+# Go To Town - Jerbob 2026 Game Jam
 
+## Ideas
+
+- Feeding Josh
+  - Player needs to gather/make food and feed it to josh
+  - Josh starts small and each time he eats he grows
+  - Eventually he takes up the whole screen and the game is over
+  - Theme application: Josh is going to town on his food
+- Oregon Trail but goofy
+  - Player drives a carriage through waves of mobs
+  - Destination is a town/city of sorts
+  - Theme application: Player is literally going to a town
