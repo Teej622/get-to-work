@@ -1,20 +1,66 @@
 [gd_scene format=3 uid="uid://cxcxog67kobk4"]
 
+[ext_resource type="Script" uid="uid://dqrsqjx0dlmn6" path="res://scenes/shot_counter.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cwcxrv0g2idnh" path="res://scenes/hamster_ball.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cpiewa65p1ql0" path="res://scenes/car.tscn" id="2_yqjtg"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -2.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+distance = -297.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+distance = 3.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+
 [node name="Game" type="Node2D" unique_id=1105203042]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1676683278]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1409710377]
+offset_right = 1152.0
+offset_bottom = 646.0
+mouse_filter = 1
+color = Color(0.5644262, 0.66103727, 0.6985732, 1)
 
-[node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
-position = Vector2(588, 287)
+[node name="ShotCounter" type="Label" parent="." unique_id=617738594]
+offset_left = 998.0
+offset_right = 1142.0
+offset_bottom = 46.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "1"
+horizontal_alignment = 2
+autowrap_mode = 2
+script = ExtResource("1_lnu2h")
 
 [node name="Car" parent="." unique_id=1962945219 instance=ExtResource("2_yqjtg")]
-position = Vector2(189, 399)
+position = Vector2(701, 287)
+
+[node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
+position = Vector2(312, 299)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=2896969]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" unique_id=1638615973]
+position = Vector2(298, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=485404262]
+position = Vector2(1156, 647)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary" unique_id=721824517]
+position = Vector2(1152, 650)
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1460882733]
+position = Vector2(576, 322)
+zoom = Vector2(0.82, 0.82)
