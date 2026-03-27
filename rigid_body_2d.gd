@@ -12,8 +12,6 @@ func _physics_process(delta: float) -> void:
 		var dist = global_position.distance_to(mouse_pos)
 		power_bar.value = clamp(dist,power_bar.step,100)
 		#power_bar.look_at(mouse_pos)
-	if linear_velocity.length() <= 100:
-		linear_velocity.floor() = 0
 
 #release
 func _input(event: InputEvent) -> void:
