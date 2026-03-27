@@ -16,6 +16,24 @@ distance = 3.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.5190872, 0.6481005, 0.4126669, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.26596048, 0.3482582, 0.19691002, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.3449138, 0.44529647, 0.2610758, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+bg_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
+bg_color = Color(0.2921899, 0.29219007, 0.29219, 1)
+
 [node name="Game" type="Node2D" unique_id=1105203042]
 script = ExtResource("1_iywne")
 
@@ -36,14 +54,20 @@ text = "0"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="Car" parent="." unique_id=1962945219 instance=ExtResource("2_yqjtg")]
-position = Vector2(701, 287)
-
-[node name="Goal" parent="." unique_id=1063061069 instance=ExtResource("4_lbhrr")]
-position = Vector2(966, 543)
+[node name="Par" type="Label" parent="." unique_id=1500126295]
+unique_name_in_owner = true
+offset_left = 1039.0
+offset_top = 46.0
+offset_right = 1142.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 33
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
-position = Vector2(312, 299)
+unique_name_in_owner = true
+position = Vector2(90, 80)
 
 [node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729]
 position = Vector2(0, -1)
@@ -100,4 +124,106 @@ text = "Score!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="score" from="Goal" to="." method="_on_goal_score"]
+[node name="NextStageBtn" type="Button" parent="ScoreScreen" unique_id=641922454]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -439.0
+offset_top = -100.0
+offset_right = -34.32251
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_lbhrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p57ef")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iywne")
+text = "Next Stage"
+
+[node name="RetryBtn" type="Button" parent="ScoreScreen" unique_id=952822049]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.809998
+offset_top = -100.0
+offset_right = 448.4878
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_u5sy4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gee14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0tnpc")
+text = "Retry Stage"
+
+[node name="Stages" type="Node" parent="." unique_id=295451589]
+unique_name_in_owner = true
+
+[node name="Stage1" type="Node2D" parent="Stages" unique_id=1062075473]
+
+[node name="Goal" parent="Stages/Stage1" unique_id=1063061069 instance=ExtResource("4_lbhrr")]
+position = Vector2(124.00006, 509.00006)
+
+[node name="Car" parent="Stages/Stage1" unique_id=1962945219 instance=ExtResource("2_yqjtg")]
+position = Vector2(113.000015, 284)
+rotation = -0.34906584
+
+[node name="Car2" parent="Stages/Stage1" unique_id=1707354674 instance=ExtResource("2_yqjtg")]
+position = Vector2(284.99997, 221)
+rotation = -0.34906584
+
+[node name="Car3" parent="Stages/Stage1" unique_id=924454235 instance=ExtResource("2_yqjtg")]
+position = Vector2(381.99994, 314.99997)
+rotation = 0.58119464
+
+[node name="Car10" parent="Stages/Stage1" unique_id=1674442753 instance=ExtResource("2_yqjtg")]
+position = Vector2(542.99994, 406.99997)
+rotation = 0.58119464
+
+[node name="Car4" parent="Stages/Stage1" unique_id=1277653841 instance=ExtResource("2_yqjtg")]
+position = Vector2(635, 67)
+
+[node name="Car5" parent="Stages/Stage1" unique_id=812689275 instance=ExtResource("2_yqjtg")]
+position = Vector2(819, 66)
+
+[node name="Car6" parent="Stages/Stage1" unique_id=272579698 instance=ExtResource("2_yqjtg")]
+position = Vector2(751, 277)
+
+[node name="Car7" parent="Stages/Stage1" unique_id=724179892 instance=ExtResource("2_yqjtg")]
+position = Vector2(941, 240)
+
+[node name="Car8" parent="Stages/Stage1" unique_id=1207752049 instance=ExtResource("2_yqjtg")]
+position = Vector2(1054.0001, 427)
+rotation = -0.7679449
+
+[node name="Car9" parent="Stages/Stage1" unique_id=1059407738 instance=ExtResource("2_yqjtg")]
+position = Vector2(918, 562.99994)
+rotation = -0.7679449
+
+[node name="Stage2" type="Node2D" parent="Stages" unique_id=1670398778]
+visible = false
+
+[node name="Car" parent="Stages/Stage2" unique_id=1437628043 instance=ExtResource("2_yqjtg")]
+position = Vector2(615, 109)
+
+[node name="Stage3" type="Node2D" parent="Stages" unique_id=485752501]
+visible = false
+
+[node name="Car" parent="Stages/Stage3" unique_id=1403388186 instance=ExtResource("2_yqjtg")]
+position = Vector2(615, 109)
+
+[node name="Stage4" type="Node2D" parent="Stages" unique_id=1018482213]
+visible = false
+
+[node name="Car" parent="Stages/Stage4" unique_id=1869600462 instance=ExtResource("2_yqjtg")]
+position = Vector2(615, 109)
+
+[connection signal="pressed" from="ScoreScreen/NextStageBtn" to="." method="_on_next_stage_btn_pressed"]
+[connection signal="pressed" from="ScoreScreen/RetryBtn" to="." method="_on_retry_btn_pressed"]
+[connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]

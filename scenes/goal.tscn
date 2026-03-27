@@ -1,19 +1,87 @@
 [gd_scene format=3 uid="uid://4pdgihsmbf4g"]
 
-[ext_resource type="Texture2D" uid="uid://bidla2trafokv" path="res://assets/sprites/goal.png" id="1_jbojv"]
 [ext_resource type="Script" uid="uid://5h7ejp105lr6" path="res://scenes/goal.gd" id="1_sx1j4"]
+[ext_resource type="Texture2D" uid="uid://decduocbvdmka" path="res://assets/sprites/goal-spritesheet.png" id="2_sx1j4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3gav"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvyg3"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqdrf"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo0vh"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc8po"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s262x"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71tl1"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uikie"]
+atlas = ExtResource("2_sx1j4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d623h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3gav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvyg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqdrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo0vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc8po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s262x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71tl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uikie")
+}],
+"loop": true,
+"name": &"Waving",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx1j4"]
 radius = 4.682539
 height = 17.460316
 
 [node name="Goal" type="Node2D" unique_id=1063061069]
+texture_filter = 1
 scale = Vector2(2.52, 2.52)
 script = ExtResource("1_sx1j4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1443428807]
-texture_filter = 1
-texture = ExtResource("1_jbojv")
+[node name="AnimatedGoal" type="AnimatedSprite2D" parent="." unique_id=1814928529]
+unique_name_in_owner = true
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_d623h")
+animation = &"Waving"
+frame_progress = 0.536545
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2057793222]
 
