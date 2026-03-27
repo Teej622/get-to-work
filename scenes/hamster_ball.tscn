@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwcxrv0g2idnh"]
 
-[ext_resource type="Script" uid="uid://dkplfxrknn01q" path="res://rigid_body_2d.gd" id="1_mt6xf"]
+[ext_resource type="Script" uid="uid://dkplfxrknn01q" path="res://hamster_ball.gd" id="1_mt6xf"]
 [ext_resource type="Texture2D" uid="uid://b548olw4h221e" path="res://assets/sprites/hamster-ball.png" id="2_vufpp"]
 [ext_resource type="Texture2D" uid="uid://wunra7sbl1pi" path="res://assets/sprites/arrow_outline.png" id="3_i6185"]
 [ext_resource type="Texture2D" uid="uid://dam8fdaf6ykce" path="res://assets/sprites/arrow_fill.png" id="4_4cact"]

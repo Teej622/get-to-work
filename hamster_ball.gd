@@ -2,7 +2,6 @@ extends RigidBody2D
 
 @onready var power_bar = %PowerBar
 @onready var pivot = %PowerPivot
-
 @onready var arrow = %Arrow
 
 @export var stop_threshold = 50
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	var arrow_fill: Sprite2D = arrow.get_child(0)
 	arrow_fill.modulate = Color(power_fill.bg_color)
 		
-	#Stop hamster if velocy < stop_threshold
+	#Stop hamster if velocity < stop_threshold
 	if linear_velocity.length() < stop_threshold and linear_velocity.length() > 0:
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0

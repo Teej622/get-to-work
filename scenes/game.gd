@@ -2,15 +2,19 @@ extends Node2D
 
 @onready var hamster_ball = %HamsterBall
 @onready var scoreType = %ScoreType
-@export var par = [2, 2, 2, 2]
+@export var par = [4, 2, 2, 2]
 var stage = 0
 var shot_history = []
 var starting_pos = [Vector2(90,80), Vector2(), Vector2(), Vector2()]
 
 func _physics_process(delta: float) -> void:
-	%ShotCounter.text = str(hamster_ball.shots)
 	
+	%ShotCounter.text = str(hamster_ball.shots)
 	%Par.text = "Par: " + str(par[stage])
+	
+	if Input.is_action_pressed("retry") and %ScoreScreen.visible == false:
+		stage_handler()
+		
 	
 
 func _on_goal_score() -> void:
@@ -45,18 +49,16 @@ func _on_goal_score() -> void:
 func _on_next_stage_btn_pressed() -> void:
 	stage += 1
 	if stage > 4:
+		#TODO if stage count is higher than current stages it should do something
 		pass
 	%ScoreScreen.visible = false
 	shot_history.append(hamster_ball.shots)
-	hamster_ball.shots = 0
 	shot_counter_update()
 	stage_handler()
 	
 func _on_retry_btn_pressed() -> void:
 	%ScoreScreen.visible = false
-	hamster_ball.shots = 0
 	shot_counter_update()
-	hamster_ball.position = starting_pos[stage]
 
 func shot_counter_update():
 	%ShotCounter.text = str(hamster_ball.shots)
@@ -66,3 +68,6 @@ func stage_handler():
 	for i in range(stages.size()):
 		if stages[i] is Node2D:
 			stages[i].visible = (i == stage)
+	hamster_ball.linear_velocity = Vector2.ZERO
+	hamster_ball.shots = 0
+	hamster_ball.position = starting_pos[stage]
