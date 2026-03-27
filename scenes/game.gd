@@ -59,6 +59,7 @@ func _on_next_stage_btn_pressed() -> void:
 func _on_retry_btn_pressed() -> void:
 	%ScoreScreen.visible = false
 	shot_counter_update()
+	stage_handler()
 
 func shot_counter_update():
 	%ShotCounter.text = str(hamster_ball.shots)
