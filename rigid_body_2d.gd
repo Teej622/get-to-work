@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	var arrow_fill: Sprite2D = arrow.get_child(0)
 	arrow_fill.modulate = Color(power_fill.bg_color)
-	
+		
 	#Stop hamster if velocy < stop_threshold
 	if linear_velocity.length() < stop_threshold and linear_velocity.length() > 0:
 		linear_velocity = Vector2.ZERO
@@ -59,11 +59,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func shoot():
 	is_charging = false
 	hide_ui()
-	shots += 1
 	
 	var dir = (global_position - get_global_mouse_position()).normalized()
 	var force = power_bar.value * strength
 	apply_central_impulse(dir * force)
+	#only increase score if the hamster actually moved
+	if force > 0:
+		shots += 1
 	
 func hide_ui():
 	power_bar.hide()

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cxcxog67kobk4"]
 
-[ext_resource type="Script" uid="uid://dqrsqjx0dlmn6" path="res://scenes/shot_counter.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://bp0irfab4lkxr" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cwcxrv0g2idnh" path="res://scenes/hamster_ball.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cpiewa65p1ql0" path="res://scenes/car.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://4pdgihsmbf4g" path="res://scenes/goal.tscn" id="4_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -2.0
@@ -16,26 +17,30 @@ distance = 3.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=1105203042]
+script = ExtResource("1_iywne")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1409710377]
 offset_right = 1152.0
 offset_bottom = 646.0
 mouse_filter = 1
-color = Color(0.5644262, 0.66103727, 0.6985732, 1)
+color = Color(0.67335, 0.63150203, 0.6382067, 1)
 
 [node name="ShotCounter" type="Label" parent="." unique_id=617738594]
+unique_name_in_owner = true
 offset_left = 998.0
 offset_right = 1142.0
 offset_bottom = 46.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 33
-text = "1"
+text = "0"
 horizontal_alignment = 2
 autowrap_mode = 2
-script = ExtResource("1_lnu2h")
 
 [node name="Car" parent="." unique_id=1962945219 instance=ExtResource("2_yqjtg")]
 position = Vector2(701, 287)
+
+[node name="Goal" parent="." unique_id=1063061069 instance=ExtResource("4_lbhrr")]
+position = Vector2(966, 543)
 
 [node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
 position = Vector2(312, 299)
@@ -64,3 +69,35 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1460882733]
 position = Vector2(576, 322)
 zoom = Vector2(0.82, 0.82)
+
+[node name="ScoreScreen" type="CanvasLayer" parent="." unique_id=1170155570]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ScoreScreen" unique_id=2011338412]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49411765)
+
+[node name="ScoreType" type="Label" parent="ScoreScreen" unique_id=1539362353]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -102.0
+offset_right = 219.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 149
+text = "Score!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="score" from="Goal" to="." method="_on_goal_score"]

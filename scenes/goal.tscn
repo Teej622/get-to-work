@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://4pdgihsmbf4g"]
+
+[ext_resource type="Texture2D" uid="uid://bidla2trafokv" path="res://assets/sprites/goal.png" id="1_jbojv"]
+[ext_resource type="Script" uid="uid://5h7ejp105lr6" path="res://scenes/goal.gd" id="1_sx1j4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx1j4"]
+radius = 4.682539
+height = 17.460316
+
+[node name="Goal" type="Node2D" unique_id=1063061069]
+scale = Vector2(2.52, 2.52)
+script = ExtResource("1_sx1j4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1443428807]
+texture_filter = 1
+texture = ExtResource("1_jbojv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2057793222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=344921939]
+position = Vector2(0, 10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_sx1j4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

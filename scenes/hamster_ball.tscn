@@ -74,6 +74,7 @@ offset_bottom = 20.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vufpp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mt6xf")
 step = 5.0
+show_percentage = false
 
 [node name="Arrow" type="Sprite2D" parent="PowerPivot" unique_id=216116272]
 unique_name_in_owner = true
