@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Go To Town Jam"
+config/name="Get To Work!"
+config/description="Mr. Hamster slept through his alarm! Can you help him get to town in time for his shift?"
+config/version="beta 1.0"
 run/main_scene="uid://cxcxog67kobk4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dci1qkog756ui"
 
 [display]
 

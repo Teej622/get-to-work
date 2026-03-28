@@ -424,8 +424,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kvpfn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dinhu")
 text = "Play Again?"
 
-[node name="Timer" type="Timer" parent="." unique_id=1302311080]
-
 [connection signal="reset_physics" from="." to="HamsterBall" method="_on_game_reset_physics"]
 [connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]
 [connection signal="score" from="Stages/Stage2/Goal" to="." method="_on_goal_score"]
