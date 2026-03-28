@@ -10,4 +10,3 @@ func _physics_process(delta: float) -> void:
 		for child in get_children():
 			if child is CollisionShape2D:
 				child.disabled = true
-				

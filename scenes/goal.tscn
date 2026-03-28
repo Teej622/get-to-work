@@ -81,9 +81,10 @@ unique_name_in_owner = true
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_d623h")
 animation = &"Waving"
-frame_progress = 0.536545
+frame_progress = 0.942574
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2057793222]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=344921939]
 position = Vector2(0, 10)

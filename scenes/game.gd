@@ -5,7 +5,7 @@ extends Node2D
 @export var par = [4, 2, 2, 2]
 var stage = 0
 var shot_history = []
-var starting_pos = [Vector2(90,80), Vector2(), Vector2(), Vector2()]
+var starting_pos = [Vector2(90,80), Vector2(90,80), Vector2(), Vector2()]
 
 func _physics_process(delta: float) -> void:
 	
@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_goal_score() -> void:
-	print("score")
 	if hamster_ball.shots > par[stage] + 3:
 		scoreType.text = str(hamster_ball.shots) + " over par..."
 	elif hamster_ball.shots == par[stage] + 3:
@@ -40,9 +39,9 @@ func _on_goal_score() -> void:
 	elif hamster_ball.shots <= par[stage] - 4:
 		scoreType.text = "Holy F$%k!\n(" + str(par[stage] - hamster_ball.shots) +" under par)"
 	
-	print(hamster_ball.shots)
-
 	%ScoreScreen.visible = true
+	hamster_ball.linear_velocity = Vector2.ZERO
+	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBall").visible = false
 	
 
 
@@ -72,3 +71,9 @@ func stage_handler():
 	hamster_ball.linear_velocity = Vector2.ZERO
 	hamster_ball.shots = 0
 	hamster_ball.position = starting_pos[stage]
+	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBall").visible = true
+
+
+
+func _on_car_killer_body_entered(body: Node2D) -> void:
+	print("car detect")

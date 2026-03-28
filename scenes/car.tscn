@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b6skiok8ig7x0" path="res://assets/sprites/shitter-car.png" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://dfa4bieqnc8qv" path="res://scenes/car.gd" id="1_qt2eu"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qt2eu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2eu"]
 size = Vector2(14, 5)
 
@@ -15,6 +17,7 @@ size = Vector2(30, 8)
 [node name="Car" type="StaticBody2D" unique_id=1962945219]
 texture_filter = 1
 scale = Vector2(6, 6)
+physics_material_override = SubResource("PhysicsMaterial_qt2eu")
 script = ExtResource("1_qt2eu")
 
 [node name="ShitterCar" type="Sprite2D" parent="." unique_id=1477021650]

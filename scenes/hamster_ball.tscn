@@ -64,6 +64,7 @@ shape = SubResource("CircleShape2D_4cact")
 
 [node name="PowerPivot" type="Marker2D" parent="." unique_id=1257272006]
 unique_name_in_owner = true
+z_index = 2
 
 [node name="PowerBar" type="ProgressBar" parent="PowerPivot" unique_id=1480388257]
 unique_name_in_owner = true

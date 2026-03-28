@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://grtil71igkdt"]
+
+[ext_resource type="Texture2D" uid="uid://nvcgqpmta3ft" path="res://assets/sprites/tar.png" id="1_8tpde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk0f0"]
+size = Vector2(32, 32)
+
+[node name="Tar" type="Area2D" unique_id=321056979]
+
+[node name="Tar" type="Sprite2D" parent="." unique_id=1537529712]
+texture_filter = 1
+texture = ExtResource("1_8tpde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1275701725]
+shape = SubResource("RectangleShape2D_gk0f0")

@@ -3,18 +3,22 @@
 [ext_resource type="Script" uid="uid://bp0irfab4lkxr" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cwcxrv0g2idnh" path="res://scenes/hamster_ball.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cpiewa65p1ql0" path="res://scenes/car.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://dovfulxvrbktr" path="res://scenes/traffic_spawner.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://4pdgihsmbf4g" path="res://scenes/goal.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ceteh75uh2oy7" path="res://scenes/moving_car.tscn" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://grtil71igkdt" path="res://scenes/tar.tscn" id="7_u5sy4"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
-distance = -2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(1152, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
-distance = -297.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
+size = Vector2(686, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
-distance = 3.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
+size = Vector2(20, 1152)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+size = Vector2(20, 686)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
 bg_color = Color(0.5190872, 0.6481005, 0.4126669, 1)
@@ -67,32 +71,116 @@ autowrap_mode = 2
 
 [node name="HamsterBall" parent="." unique_id=870488828 instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(90, 80)
+
+[node name="Stages" type="Node" parent="." unique_id=295451589]
+unique_name_in_owner = true
+
+[node name="Stage1" type="Node2D" parent="Stages" unique_id=1062075473]
+visible = false
+
+[node name="Goal" parent="Stages/Stage1" unique_id=1063061069 instance=ExtResource("4_lbhrr")]
+position = Vector2(124.00006, 509.00006)
+
+[node name="Car" parent="Stages/Stage1" unique_id=1962945219 instance=ExtResource("2_yqjtg")]
+position = Vector2(113.000015, 284)
+rotation = -0.34906584
+
+[node name="Car2" parent="Stages/Stage1" unique_id=1707354674 instance=ExtResource("2_yqjtg")]
+position = Vector2(284.99997, 221)
+rotation = -0.34906584
+
+[node name="Car3" parent="Stages/Stage1" unique_id=924454235 instance=ExtResource("2_yqjtg")]
+position = Vector2(381.99994, 314.99997)
+rotation = 0.58119464
+
+[node name="Car4" parent="Stages/Stage1" unique_id=1277653841 instance=ExtResource("2_yqjtg")]
+position = Vector2(635, 67)
+
+[node name="Car5" parent="Stages/Stage1" unique_id=812689275 instance=ExtResource("2_yqjtg")]
+position = Vector2(819, 66)
+
+[node name="Car6" parent="Stages/Stage1" unique_id=272579698 instance=ExtResource("2_yqjtg")]
+position = Vector2(751, 277)
+
+[node name="Car7" parent="Stages/Stage1" unique_id=724179892 instance=ExtResource("2_yqjtg")]
+position = Vector2(941, 240)
+
+[node name="Car8" parent="Stages/Stage1" unique_id=1207752049 instance=ExtResource("2_yqjtg")]
+position = Vector2(1054.0001, 427)
+rotation = -0.7679449
+
+[node name="Car9" parent="Stages/Stage1" unique_id=1059407738 instance=ExtResource("2_yqjtg")]
+position = Vector2(918, 562.99994)
+rotation = -0.7679449
+
+[node name="Car10" parent="Stages/Stage1" unique_id=1674442753 instance=ExtResource("2_yqjtg")]
+position = Vector2(542.99994, 406.99997)
+rotation = 0.5811946
+
+[node name="Stage2" type="Node2D" parent="Stages" unique_id=1670398778]
+visible = false
+
+[node name="TrafficSpawner" type="Node2D" parent="Stages/Stage2" unique_id=1259233158]
+position = Vector2(-93.105, 205.8)
+scale = Vector2(6, 6)
+script = ExtResource("4_iywne")
+car_scene = ExtResource("5_p57ef")
+spawn_delay = 0.7
+car_speed = 200
+
+[node name="TrafficSpawner2" type="Node2D" parent="Stages/Stage2" unique_id=496203336]
+position = Vector2(1271.045, 439.605)
+scale = Vector2(6, 6)
+script = ExtResource("4_iywne")
+car_scene = ExtResource("5_p57ef")
+spawn_delay = 0.6
+direction = Vector2(-1, 0)
+
+[node name="Goal" parent="Stages/Stage2" unique_id=606000942 instance=ExtResource("4_lbhrr")]
+position = Vector2(578, 580)
+
+[node name="Stage3" type="Node2D" parent="Stages" unique_id=485752501]
+
+[node name="Car" parent="Stages/Stage3" unique_id=1403388186 instance=ExtResource("2_yqjtg")]
+position = Vector2(615, 109)
+
+[node name="Tar" parent="Stages/Stage3" unique_id=321056979 instance=ExtResource("7_u5sy4")]
+position = Vector2(294, 300)
+scale = Vector2(4, 4)
+
+[node name="Stage4" type="Node2D" parent="Stages" unique_id=1018482213]
+visible = false
+
+[node name="Car" parent="Stages/Stage4" unique_id=1869600462 instance=ExtResource("2_yqjtg")]
+position = Vector2(615, 109)
 
 [node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729]
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=2896969]
-rotation = 3.1415927
-shape = SubResource("WorldBoundaryShape2D_lnu2h")
+position = Vector2(576, -8.999994)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" unique_id=1638615973]
-position = Vector2(298, 0)
+position = Vector2(-10.000013, 324)
 rotation = 1.5707964
-shape = SubResource("WorldBoundaryShape2D_lbhrr")
+shape = SubResource("RectangleShape2D_iywne")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=485404262]
-position = Vector2(1156, 647)
+position = Vector2(576, 657)
 rotation = -1.5707964
-shape = SubResource("WorldBoundaryShape2D_iywne")
+shape = SubResource("RectangleShape2D_p57ef")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary" unique_id=721824517]
-position = Vector2(1152, 650)
-shape = SubResource("WorldBoundaryShape2D_p57ef")
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_u5sy4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1460882733]
 position = Vector2(576, 322)
-zoom = Vector2(0.82, 0.82)
+zoom = Vector2(1.115, 1.115)
 
 [node name="ScoreScreen" type="CanvasLayer" parent="." unique_id=1170155570]
 unique_name_in_owner = true
@@ -162,68 +250,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_gee14")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0tnpc")
 text = "Retry Stage"
 
-[node name="Stages" type="Node" parent="." unique_id=295451589]
-unique_name_in_owner = true
-
-[node name="Stage1" type="Node2D" parent="Stages" unique_id=1062075473]
-
-[node name="Goal" parent="Stages/Stage1" unique_id=1063061069 instance=ExtResource("4_lbhrr")]
-position = Vector2(124.00006, 509.00006)
-
-[node name="Car" parent="Stages/Stage1" unique_id=1962945219 instance=ExtResource("2_yqjtg")]
-position = Vector2(113.000015, 284)
-rotation = -0.34906584
-
-[node name="Car2" parent="Stages/Stage1" unique_id=1707354674 instance=ExtResource("2_yqjtg")]
-position = Vector2(284.99997, 221)
-rotation = -0.34906584
-
-[node name="Car3" parent="Stages/Stage1" unique_id=924454235 instance=ExtResource("2_yqjtg")]
-position = Vector2(381.99994, 314.99997)
-rotation = 0.58119464
-
-[node name="Car10" parent="Stages/Stage1" unique_id=1674442753 instance=ExtResource("2_yqjtg")]
-position = Vector2(542.99994, 406.99997)
-rotation = 0.58119464
-
-[node name="Car4" parent="Stages/Stage1" unique_id=1277653841 instance=ExtResource("2_yqjtg")]
-position = Vector2(635, 67)
-
-[node name="Car5" parent="Stages/Stage1" unique_id=812689275 instance=ExtResource("2_yqjtg")]
-position = Vector2(819, 66)
-
-[node name="Car6" parent="Stages/Stage1" unique_id=272579698 instance=ExtResource("2_yqjtg")]
-position = Vector2(751, 277)
-
-[node name="Car7" parent="Stages/Stage1" unique_id=724179892 instance=ExtResource("2_yqjtg")]
-position = Vector2(941, 240)
-
-[node name="Car8" parent="Stages/Stage1" unique_id=1207752049 instance=ExtResource("2_yqjtg")]
-position = Vector2(1054.0001, 427)
-rotation = -0.7679449
-
-[node name="Car9" parent="Stages/Stage1" unique_id=1059407738 instance=ExtResource("2_yqjtg")]
-position = Vector2(918, 562.99994)
-rotation = -0.7679449
-
-[node name="Stage2" type="Node2D" parent="Stages" unique_id=1670398778]
-visible = false
-
-[node name="Car" parent="Stages/Stage2" unique_id=1437628043 instance=ExtResource("2_yqjtg")]
-position = Vector2(615, 109)
-
-[node name="Stage3" type="Node2D" parent="Stages" unique_id=485752501]
-visible = false
-
-[node name="Car" parent="Stages/Stage3" unique_id=1403388186 instance=ExtResource("2_yqjtg")]
-position = Vector2(615, 109)
-
-[node name="Stage4" type="Node2D" parent="Stages" unique_id=1018482213]
-visible = false
-
-[node name="Car" parent="Stages/Stage4" unique_id=1869600462 instance=ExtResource("2_yqjtg")]
-position = Vector2(615, 109)
-
+[connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]
+[connection signal="score" from="Stages/Stage2/Goal" to="." method="_on_goal_score"]
 [connection signal="pressed" from="ScoreScreen/NextStageBtn" to="." method="_on_next_stage_btn_pressed"]
 [connection signal="pressed" from="ScoreScreen/RetryBtn" to="." method="_on_retry_btn_pressed"]
-[connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]
