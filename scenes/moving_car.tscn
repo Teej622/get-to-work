@@ -1,36 +1,77 @@
 [gd_scene format=3 uid="uid://ceteh75uh2oy7"]
 
 [ext_resource type="Script" uid="uid://bdjiv5xq8lr76" path="res://scenes/moving_car.gd" id="1_hqjy5"]
-[ext_resource type="Texture2D" uid="uid://b6skiok8ig7x0" path="res://assets/sprites/shitter-car.png" id="2_hqjy5"]
+[ext_resource type="Texture2D" uid="uid://b5dyni2nb2mi1" path="res://assets/sprites/car.png" id="2_hqjy5"]
+[ext_resource type="Texture2D" uid="uid://dqclijfmfepxm" path="res://assets/sprites/car3.png" id="2_xh1pf"]
+[ext_resource type="Texture2D" uid="uid://l7jg5da3fpay" path="res://assets/sprites/car4.png" id="3_lhdv6"]
+[ext_resource type="Texture2D" uid="uid://cjmsttmonejjl" path="res://assets/sprites/car2.png" id="4_4ywso"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiqxf"]
-size = Vector2(14, 5)
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0gw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xh1pf")
+}],
+"loop": true,
+"name": &"POLICE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lhdv6")
+}],
+"loop": true,
+"name": &"RACE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4ywso")
+}],
+"loop": true,
+"name": &"SEDAN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqjy5")
+}],
+"loop": true,
+"name": &"SUV",
+"speed": 5.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_imk0k"]
-size = Vector2(7, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r72do"]
+size = Vector2(19.5, 2.8333335)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh1pf"]
-size = Vector2(30, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcicw"]
+size = Vector2(4.6666665, 1.8333335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5kar"]
+size = Vector2(31, 8.833334)
 
 [node name="MovingCar" type="AnimatableBody2D" unique_id=1450297456]
 texture_filter = 1
 script = ExtResource("1_hqjy5")
 
-[node name="ShitterCar" type="Sprite2D" parent="." unique_id=1234683321]
-texture = ExtResource("2_hqjy5")
+[node name="CarSprite" type="AnimatedSprite2D" parent="." unique_id=1176795172]
+position = Vector2(2.9802322e-08, 2.9802322e-08)
+scale = Vector2(0.9739584, 0.9739584)
+sprite_frames = SubResource("SpriteFrames_f0gw8")
+animation = &"RACE"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440337925]
-position = Vector2(0, -5.5)
-shape = SubResource("RectangleShape2D_oiqxf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458162952]
+position = Vector2(3.9166667, -4.416667)
+shape = SubResource("RectangleShape2D_r72do")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=862629565]
-position = Vector2(-9.5, 6.5)
-shape = SubResource("RectangleShape2D_imk0k")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=85151418]
+position = Vector2(-10.166666, 6.666667)
+shape = SubResource("RectangleShape2D_pcicw")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=445858386]
-position = Vector2(9.5, 6.5)
-shape = SubResource("RectangleShape2D_imk0k")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=964094258]
+position = Vector2(11.166667, 6.75)
+shape = SubResource("RectangleShape2D_pcicw")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=392458980]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_xh1pf")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=343917067]
+position = Vector2(4.7683716e-07, 1.4166667)
+shape = SubResource("RectangleShape2D_u5kar")

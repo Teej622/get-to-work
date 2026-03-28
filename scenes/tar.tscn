@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://grtil71igkdt"]
 
 [ext_resource type="Texture2D" uid="uid://nvcgqpmta3ft" path="res://assets/sprites/tar.png" id="1_8tpde"]
+[ext_resource type="Script" uid="uid://c8unefe2x1mwh" path="res://scenes/tar.gd" id="1_gk0f0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk0f0"]
-size = Vector2(32, 32)
+size = Vector2(29, 26)
 
-[node name="Tar" type="Area2D" unique_id=321056979]
+[node name="Tar" type="Area2D" unique_id=321056979 groups=["Player"]]
+script = ExtResource("1_gk0f0")
 
 [node name="Tar" type="Sprite2D" parent="." unique_id=1537529712]
 texture_filter = 1
@@ -13,3 +15,5 @@ texture = ExtResource("1_8tpde")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1275701725]
 shape = SubResource("RectangleShape2D_gk0f0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

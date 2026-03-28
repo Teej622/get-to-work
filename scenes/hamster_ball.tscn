@@ -1,13 +1,76 @@
 [gd_scene format=3 uid="uid://cwcxrv0g2idnh"]
 
 [ext_resource type="Script" uid="uid://dkplfxrknn01q" path="res://hamster_ball.gd" id="1_mt6xf"]
-[ext_resource type="Texture2D" uid="uid://b548olw4h221e" path="res://assets/sprites/hamster-ball.png" id="2_vufpp"]
+[ext_resource type="Texture2D" uid="uid://d4gx6na4xmfis" path="res://assets/sprites/shadow.png" id="2_4cact"]
+[ext_resource type="Texture2D" uid="uid://ce35khp1s4ue6" path="res://assets/sprites/hamster-ball-anim.png" id="2_i6185"]
 [ext_resource type="Texture2D" uid="uid://wunra7sbl1pi" path="res://assets/sprites/arrow_outline.png" id="3_i6185"]
 [ext_resource type="Texture2D" uid="uid://dam8fdaf6ykce" path="res://assets/sprites/arrow_fill.png" id="4_4cact"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mt6xf"]
 rough = true
 bounce = 0.65
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cact"]
+atlas = ExtResource("2_i6185")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpbag"]
+atlas = ExtResource("2_i6185")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0tkx"]
+atlas = ExtResource("2_i6185")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi3qf"]
+atlas = ExtResource("2_i6185")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3a6r"]
+atlas = ExtResource("2_i6185")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sdjp"]
+atlas = ExtResource("2_i6185")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hafx"]
+atlas = ExtResource("2_i6185")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cw1fw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cact")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpbag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0tkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi3qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3a6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sdjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hafx")
+}],
+"loop": true,
+"name": &"Roll",
+"speed": 16.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i6185"]
 radius = 31.0
@@ -39,7 +102,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="HamsterBall" type="RigidBody2D" unique_id=870488828]
+[node name="HamsterBall" type="RigidBody2D" unique_id=870488828 groups=["Player"]]
 texture_filter = 1
 mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_mt6xf")
@@ -50,9 +113,18 @@ script = ExtResource("1_mt6xf")
 stop_threshold = 15
 strength = 40
 
-[node name="HamsterBall" type="Sprite2D" parent="." unique_id=766805867]
+[node name="HamsterBallAnim" type="AnimatedSprite2D" parent="." unique_id=121336029]
+unique_name_in_owner = true
 scale = Vector2(2, 2)
-texture = ExtResource("2_vufpp")
+sprite_frames = SubResource("SpriteFrames_cw1fw")
+animation = &"Idle"
+
+[node name="Shadow" type="Sprite2D" parent="HamsterBallAnim" unique_id=276411539]
+modulate = Color(0.4470237, 0.44705933, 0.48381877, 0.3647059)
+z_index = -1
+position = Vector2(2.9802322e-08, 2)
+scale = Vector2(1.03125, 1.03125)
+texture = ExtResource("2_4cact")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361803655]
 shape = SubResource("CircleShape2D_i6185")

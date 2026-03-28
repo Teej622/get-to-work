@@ -3,11 +3,12 @@ extends Node2D
 @onready var hamster_ball = %HamsterBall
 @onready var scoreType = %ScoreType
 @onready var background = %Background
-@export var par = [4, 3, 4, 4]
+@export var par = [4, 3, 4, 6]
 var stage = 0
 var shot_history = []
 var starting_pos = [Vector2(90,80), Vector2(90,80), Vector2(90,80), Vector2(90,80)]
 var just_reset = false
+signal reset_physics
 
 func _ready():
 	stage_handler()
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	%Par.text = "Par: " + str(par[stage])
 	
 	if Input.is_action_pressed("retry") and %ScoreScreen.visible == false:
-		stage_handler()
+		retry()
 	
 	# skip bounds check this frame
 	if just_reset:
@@ -27,8 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	#in case hamster gets forced out of bounds by car
 	if hamster_ball.global_position.x <= -55 or hamster_ball.global_position.x >= 1165 or hamster_ball.global_position.y <= -55 or hamster_ball.global_position.y >= 700:
-		hamster_ball.global_position = starting_pos[stage]
-		hamster_ball.linear_velocity = Vector2.ZERO
+		hamster_ball.teleport(starting_pos[stage])
 		
 	
 
@@ -56,7 +56,7 @@ func _on_goal_score() -> void:
 	
 	%ScoreScreen.visible = true
 	hamster_ball.linear_velocity = Vector2.ZERO
-	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBall").visible = false
+	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBallAnim").visible = false
 	
 
 
@@ -71,6 +71,9 @@ func _on_next_stage_btn_pressed() -> void:
 	stage_handler()
 	
 func _on_retry_btn_pressed() -> void:
+	retry()
+
+func retry():
 	%ScoreScreen.visible = false
 	shot_counter_update()
 	stage_handler()
@@ -84,15 +87,10 @@ func stage_handler():
 		if stages[i] is Node2D:
 			stages[i].visible = (i == stage)
 	bg_modulate()
-	hamster_ball.freeze = true
-	hamster_ball.linear_velocity = Vector2.ZERO
+	reset_physics.emit()
 	hamster_ball.shots = 0
-	hamster_ball.global_position = starting_pos[stage]
-	just_reset = true
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	hamster_ball.freeze = false
-	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBall").visible = true
+	hamster_ball.teleport(starting_pos[stage])
+	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBallAnim").visible = true
 	
 func bg_modulate():
 	if stage == 0:

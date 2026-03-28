@@ -65,7 +65,6 @@ position = Vector2(90, 80)
 unique_name_in_owner = true
 
 [node name="Stage1" type="Node2D" parent="Stages" unique_id=1062075473]
-visible = false
 
 [node name="Goal" parent="Stages/Stage1" unique_id=1063061069 instance=ExtResource("4_lbhrr")]
 position = Vector2(124.00006, 509.00006)
@@ -135,6 +134,7 @@ spawn_delay = 0.6
 direction = Vector2(-1, 0)
 
 [node name="Stage3" type="Node2D" parent="Stages" unique_id=485752501]
+visible = false
 
 [node name="Goal" parent="Stages/Stage3" unique_id=170075746 instance=ExtResource("4_lbhrr")]
 position = Vector2(1039, 136)
@@ -177,7 +177,7 @@ position = Vector2(912, 54.000008)
 rotation = -0.1273054
 
 [node name="Tar" parent="Stages/Stage3" unique_id=321056979 instance=ExtResource("7_u5sy4")]
-position = Vector2(593, 157.00002)
+position = Vector2(590.00006, 184.99998)
 rotation = 0.012283955
 scale = Vector2(4, 4)
 
@@ -192,41 +192,21 @@ scale = Vector2(2.5200002, 2.5200002)
 position = Vector2(289.00003, 569)
 rotation = 0.28708538
 
-[node name="Car6" parent="Stages/Stage4" unique_id=1605351049 instance=ExtResource("2_yqjtg")]
-position = Vector2(477.00003, 582.00006)
-rotation = 0.027390443
-
-[node name="Car7" parent="Stages/Stage4" unique_id=1426521529 instance=ExtResource("2_yqjtg")]
-position = Vector2(660.00006, 566.00006)
-rotation = -0.118316054
-
-[node name="Car9" parent="Stages/Stage4" unique_id=1612392897 instance=ExtResource("2_yqjtg")]
-position = Vector2(777, 445)
-rotation = -1.0086782
-
 [node name="Car4" parent="Stages/Stage4" unique_id=930517113 instance=ExtResource("2_yqjtg")]
 position = Vector2(107, 512)
 rotation = 0.28708538
 
 [node name="Car2" parent="Stages/Stage4" unique_id=1464411420 instance=ExtResource("2_yqjtg")]
-position = Vector2(227.00002, 278.00003)
-rotation = 0.050222307
+position = Vector2(468, 486)
+rotation = -0.49406692
 
 [node name="Car5" parent="Stages/Stage4" unique_id=942467265 instance=ExtResource("2_yqjtg")]
-position = Vector2(472.99994, 209.99998)
-rotation = 0.93952215
-
-[node name="Car8" parent="Stages/Stage4" unique_id=394408755 instance=ExtResource("2_yqjtg")]
-position = Vector2(697, 235)
-rotation = -0.90838903
-
-[node name="Car10" parent="Stages/Stage4" unique_id=1328953772 instance=ExtResource("2_yqjtg")]
-position = Vector2(557.99994, 52)
-rotation = -0.0013474561
+position = Vector2(687, 291)
+rotation = -1.5631233
 
 [node name="Car3" parent="Stages/Stage4" unique_id=2063651233 instance=ExtResource("2_yqjtg")]
-position = Vector2(355, 59.999992)
-rotation = 0.4198525
+position = Vector2(592.99994, 94.99998)
+rotation = -0.7201076
 
 [node name="TrafficSpawner" type="Node2D" parent="Stages/Stage4" unique_id=958069266]
 position = Vector2(732, -61.000004)
@@ -247,12 +227,11 @@ car_speed = 100
 direction = Vector2(-0.5, 1)
 
 [node name="Tar2" parent="Stages/Stage4" unique_id=1104976366 instance=ExtResource("7_u5sy4")]
-position = Vector2(70, 265)
+position = Vector2(260, 412)
 scale = Vector2(4, 4)
 
 [node name="Tar" parent="Stages/Stage4" unique_id=1831313410 instance=ExtResource("7_u5sy4")]
-position = Vector2(483, 362)
-rotation = -0.18153735
+position = Vector2(803, 486)
 scale = Vector2(3, 3)
 
 [node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729]
@@ -285,7 +264,6 @@ zoom = Vector2(1.115, 1.115)
 offset_left = 1009.0
 offset_right = 1152.0
 offset_bottom = 96.0
-mouse_filter = 2
 color = Color(0.17254902, 0.17254902, 0.17254902, 0.7882353)
 
 [node name="ShotCounter" type="Label" parent="." unique_id=617738594]
@@ -320,7 +298,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_behavior_recursive = 1
 color = Color(0, 0, 0, 0.49411765)
 
 [node name="ScoreType" type="Label" parent="ScoreScreen" unique_id=1539362353]
