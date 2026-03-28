@@ -40,14 +40,17 @@ bg_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tnpc"]
 bg_color = Color(0.2921899, 0.29219007, 0.29219, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaks"]
+bg_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpfn"]
+bg_color = Color(0.34687126, 0.83610916, 1.3861656e-05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+bg_color = Color(0.81621116, 1, 0.714472, 1)
+
 [node name="Game" type="Node2D" unique_id=1105203042]
 script = ExtResource("1_iywne")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1409710377]
-offset_right = 1152.0
-offset_bottom = 646.0
-mouse_filter = 1
-color = Color(0.6745098, 0.6313726, 0.6392157, 1)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=663961764]
 unique_name_in_owner = true
@@ -135,6 +138,7 @@ spawn_delay = 0.6
 direction = Vector2(-1, 0)
 
 [node name="Stage3" type="Node2D" parent="Stages" unique_id=485752501]
+visible = false
 
 [node name="Goal" parent="Stages/Stage3" unique_id=170075746 instance=ExtResource("4_lbhrr")]
 position = Vector2(1039, 136)
@@ -379,6 +383,49 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_gee14")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0tnpc")
 text = "Retry Stage"
 
+[node name="EndScreen" type="CanvasLayer" parent="." unique_id=1407285102]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen" unique_id=1235218430]
+offset_right = 1280.0
+offset_bottom = 719.0
+color = Color(0.4759429, 0.5909285, 0.63567907, 1)
+
+[node name="TimeLbl" type="Label" parent="EndScreen" unique_id=2035184878]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 431.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainBtn" type="Button" parent="EndScreen" unique_id=1284817687]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -28.5
+offset_right = 165.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.41981265, 0.4198134, 0.41981277, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kvpfn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dinhu")
+text = "Play Again?"
+
+[node name="Timer" type="Timer" parent="." unique_id=1302311080]
+
 [connection signal="reset_physics" from="." to="HamsterBall" method="_on_game_reset_physics"]
 [connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]
 [connection signal="score" from="Stages/Stage2/Goal" to="." method="_on_goal_score"]
@@ -386,3 +433,4 @@ text = "Retry Stage"
 [connection signal="score" from="Stages/Stage4/Goal" to="." method="_on_goal_score"]
 [connection signal="pressed" from="ScoreScreen/NextStageBtn" to="." method="_on_next_stage_btn_pressed"]
 [connection signal="pressed" from="ScoreScreen/RetryBtn" to="." method="_on_retry_btn_pressed"]
+[connection signal="pressed" from="EndScreen/PlayAgainBtn" to="." method="_on_play_again_btn_pressed"]

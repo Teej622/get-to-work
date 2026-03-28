@@ -3,33 +3,29 @@ extends Node2D
 @onready var hamster_ball = %HamsterBall
 @onready var scoreType = %ScoreType
 @onready var background = %Background
-@export var par = [4, 3, 4, 6]
+@export var par = [4, 3, 4, 7]
 var stage = 0
 var shot_history = []
 var starting_pos = [Vector2(90,80), Vector2(90,80), Vector2(90,80), Vector2(90,80)]
 var just_reset = false
+var elapsed_time := 0.0
 signal reset_physics
 
 func _ready():
 	stage_handler()
 
 func _physics_process(delta: float) -> void:
+	elapsed_time += delta
 	
-	%ShotCounter.text = str(hamster_ball.shots)
-	%Par.text = "Par: " + str(par[stage])
-	
-	if Input.is_action_pressed("retry") and %ScoreScreen.visible == false:
-		retry()
-	
-	# skip bounds check this frame
-	if just_reset:
-		just_reset = false
-		return 
-	
-	#in case hamster gets forced out of bounds by car
-	if hamster_ball.global_position.x <= -55 or hamster_ball.global_position.x >= 1165 or hamster_ball.global_position.y <= -55 or hamster_ball.global_position.y >= 700:
-		hamster_ball.teleport(starting_pos[stage])
-		
+	if (stage < 4):
+		%ShotCounter.text = str(hamster_ball.shots)
+		%Par.text = "Par: " + str(par[stage])
+		if Input.is_action_pressed("retry") and %ScoreScreen.visible == false:
+			retry()
+		#in case hamster gets forced out of bounds by car
+		if hamster_ball.global_position.x <= -55 or hamster_ball.global_position.x >= 1165 or hamster_ball.global_position.y <= -55 or hamster_ball.global_position.y >= 700:
+			hamster_ball.teleport(starting_pos[stage])
+			
 	
 
 func _on_goal_score() -> void:
@@ -62,9 +58,21 @@ func _on_goal_score() -> void:
 
 func _on_next_stage_btn_pressed() -> void:
 	stage += 1
-	if stage > 4:
-		#TODO if stage count is higher than current stages it should do something
-		pass
+	if stage > 3:
+		shot_history.append(hamster_ball.shots)
+		var seconds = int(elapsed_time) % 60
+		var minutes = int(elapsed_time) / 60
+		var total_shots = 0
+		for shots in shot_history:
+			total_shots += shots
+		
+		var course_par = 0
+		for stage_par in par:
+			course_par += stage_par
+			
+		$EndScreen/TimeLbl.text = "Congratulations! You made it to work in %d:%02d!\nYou took %d shots (course par: %d)" % [minutes,seconds, total_shots, course_par]
+		$EndScreen.visible = true
+		return
 	%ScoreScreen.visible = false
 	shot_history.append(hamster_ball.shots)
 	shot_counter_update()
@@ -72,6 +80,16 @@ func _on_next_stage_btn_pressed() -> void:
 	
 func _on_retry_btn_pressed() -> void:
 	retry()
+
+func _on_play_again_btn_pressed() -> void:
+	stage = 0
+	shot_history = []
+	elapsed_time = 0
+	print("replay")
+	$EndScreen.visible = false
+	%ScoreScreen.visible = false
+	stage_handler()
+	
 
 func retry():
 	%ScoreScreen.visible = false
