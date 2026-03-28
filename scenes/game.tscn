@@ -73,39 +73,39 @@ visible = false
 [node name="Goal" parent="Stages/Stage1" unique_id=1063061069 instance=ExtResource("4_lbhrr")]
 position = Vector2(124.00006, 509.00006)
 
-[node name="Car" parent="Stages/Stage1" unique_id=1962945219 instance=ExtResource("2_yqjtg")]
+[node name="Car" parent="Stages/Stage1" unique_id=1962945219 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(113.000015, 284)
 rotation = -0.34906584
 
-[node name="Car2" parent="Stages/Stage1" unique_id=1707354674 instance=ExtResource("2_yqjtg")]
+[node name="Car2" parent="Stages/Stage1" unique_id=1707354674 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(284.99997, 221)
 rotation = -0.34906584
 
-[node name="Car3" parent="Stages/Stage1" unique_id=924454235 instance=ExtResource("2_yqjtg")]
+[node name="Car3" parent="Stages/Stage1" unique_id=924454235 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(381.99994, 314.99997)
 rotation = 0.58119464
 
-[node name="Car4" parent="Stages/Stage1" unique_id=1277653841 instance=ExtResource("2_yqjtg")]
+[node name="Car4" parent="Stages/Stage1" unique_id=1277653841 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(635, 67)
 
-[node name="Car5" parent="Stages/Stage1" unique_id=812689275 instance=ExtResource("2_yqjtg")]
+[node name="Car5" parent="Stages/Stage1" unique_id=812689275 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(819, 66)
 
-[node name="Car6" parent="Stages/Stage1" unique_id=272579698 instance=ExtResource("2_yqjtg")]
+[node name="Car6" parent="Stages/Stage1" unique_id=272579698 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(751, 277)
 
-[node name="Car7" parent="Stages/Stage1" unique_id=724179892 instance=ExtResource("2_yqjtg")]
+[node name="Car7" parent="Stages/Stage1" unique_id=724179892 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(941, 240)
 
-[node name="Car8" parent="Stages/Stage1" unique_id=1207752049 instance=ExtResource("2_yqjtg")]
+[node name="Car8" parent="Stages/Stage1" unique_id=1207752049 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(1054.0001, 427)
 rotation = -0.7679449
 
-[node name="Car9" parent="Stages/Stage1" unique_id=1059407738 instance=ExtResource("2_yqjtg")]
+[node name="Car9" parent="Stages/Stage1" unique_id=1059407738 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(918, 562.99994)
 rotation = -0.7679449
 
-[node name="Car10" parent="Stages/Stage1" unique_id=1674442753 instance=ExtResource("2_yqjtg")]
+[node name="Car10" parent="Stages/Stage1" unique_id=1674442753 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(542.99994, 406.99997)
 rotation = 0.5811946
 
@@ -144,39 +144,39 @@ visible = false
 position = Vector2(1039, 136)
 scale = Vector2(2.5200002, 2.5200002)
 
-[node name="Car" parent="Stages/Stage3" unique_id=1403388186 instance=ExtResource("2_yqjtg")]
+[node name="Car" parent="Stages/Stage3" unique_id=1403388186 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(111.99997, 319)
 rotation = 0.46814665
 
-[node name="Car2" parent="Stages/Stage3" unique_id=1447132422 instance=ExtResource("2_yqjtg")]
+[node name="Car2" parent="Stages/Stage3" unique_id=1447132422 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(277.99997, 404.99997)
 rotation = 0.46814665
 
-[node name="Car3" parent="Stages/Stage3" unique_id=1525191945 instance=ExtResource("2_yqjtg")]
+[node name="Car3" parent="Stages/Stage3" unique_id=1525191945 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(423.99997, 99.999985)
 rotation = -0.74757653
 
-[node name="Car4" parent="Stages/Stage3" unique_id=1121487519 instance=ExtResource("2_yqjtg")]
+[node name="Car4" parent="Stages/Stage3" unique_id=1121487519 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(624, 377.99997)
 rotation = -0.40604803
 
-[node name="Car5" parent="Stages/Stage3" unique_id=1739698500 instance=ExtResource("2_yqjtg")]
+[node name="Car5" parent="Stages/Stage3" unique_id=1739698500 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(656, 500)
 rotation = 0.14579734
 
-[node name="Car6" parent="Stages/Stage3" unique_id=1840830509 instance=ExtResource("2_yqjtg")]
+[node name="Car6" parent="Stages/Stage3" unique_id=1840830509 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(843, 520)
 rotation = 0.019103628
 
-[node name="Car7" parent="Stages/Stage3" unique_id=969506567 instance=ExtResource("2_yqjtg")]
+[node name="Car7" parent="Stages/Stage3" unique_id=969506567 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(998.0001, 464.00006)
 rotation = -1.0515914
 
-[node name="Car8" parent="Stages/Stage3" unique_id=1432720696 instance=ExtResource("2_yqjtg")]
+[node name="Car8" parent="Stages/Stage3" unique_id=1432720696 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(918.00006, 171.00003)
 rotation = 0.4308154
 
-[node name="Car9" parent="Stages/Stage3" unique_id=1401525225 instance=ExtResource("2_yqjtg")]
+[node name="Car9" parent="Stages/Stage3" unique_id=1401525225 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(912, 54.000008)
 rotation = -0.1273054
 
@@ -192,43 +192,43 @@ visible = false
 position = Vector2(1039, 65)
 scale = Vector2(2.5200002, 2.5200002)
 
-[node name="Car" parent="Stages/Stage4" unique_id=1869600462 instance=ExtResource("2_yqjtg")]
+[node name="Car" parent="Stages/Stage4" unique_id=1869600462 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(289.00003, 569)
 rotation = 0.28708538
 
-[node name="Car6" parent="Stages/Stage4" unique_id=1605351049 instance=ExtResource("2_yqjtg")]
+[node name="Car6" parent="Stages/Stage4" unique_id=1605351049 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(477.00003, 582.00006)
 rotation = 0.027390443
 
-[node name="Car7" parent="Stages/Stage4" unique_id=1426521529 instance=ExtResource("2_yqjtg")]
+[node name="Car7" parent="Stages/Stage4" unique_id=1426521529 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(660.00006, 566.00006)
 rotation = -0.118316054
 
-[node name="Car9" parent="Stages/Stage4" unique_id=1612392897 instance=ExtResource("2_yqjtg")]
+[node name="Car9" parent="Stages/Stage4" unique_id=1612392897 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(777, 445)
 rotation = -1.0086782
 
-[node name="Car4" parent="Stages/Stage4" unique_id=930517113 instance=ExtResource("2_yqjtg")]
+[node name="Car4" parent="Stages/Stage4" unique_id=930517113 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(107, 512)
 rotation = 0.28708538
 
-[node name="Car2" parent="Stages/Stage4" unique_id=1464411420 instance=ExtResource("2_yqjtg")]
+[node name="Car2" parent="Stages/Stage4" unique_id=1464411420 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(227.00002, 278.00003)
 rotation = 0.050222307
 
-[node name="Car5" parent="Stages/Stage4" unique_id=942467265 instance=ExtResource("2_yqjtg")]
+[node name="Car5" parent="Stages/Stage4" unique_id=942467265 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(472.99994, 209.99998)
 rotation = 0.93952215
 
-[node name="Car8" parent="Stages/Stage4" unique_id=394408755 instance=ExtResource("2_yqjtg")]
+[node name="Car8" parent="Stages/Stage4" unique_id=394408755 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(697, 235)
 rotation = -0.90838903
 
-[node name="Car10" parent="Stages/Stage4" unique_id=1328953772 instance=ExtResource("2_yqjtg")]
+[node name="Car10" parent="Stages/Stage4" unique_id=1328953772 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(557.99994, 52)
 rotation = -0.0013474561
 
-[node name="Car3" parent="Stages/Stage4" unique_id=2063651233 instance=ExtResource("2_yqjtg")]
+[node name="Car3" parent="Stages/Stage4" unique_id=2063651233 groups=["Object"] instance=ExtResource("2_yqjtg")]
 position = Vector2(355, 59.999992)
 rotation = 0.4198525
 
@@ -259,25 +259,25 @@ position = Vector2(483, 362)
 rotation = -0.18153735
 scale = Vector2(3, 3)
 
-[node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729]
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=851081729 groups=["Object"]]
 position = Vector2(0, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=2896969]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=2896969 groups=["Object"]]
 position = Vector2(576, -8.999994)
 rotation = -3.1415925
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" unique_id=1638615973]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary" unique_id=1638615973 groups=["Object"]]
 position = Vector2(-10.000013, 324)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=485404262]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary" unique_id=485404262 groups=["Object"]]
 position = Vector2(576, 657)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_p57ef")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary" unique_id=721824517]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary" unique_id=721824517 groups=["Object"]]
 position = Vector2(1162, 324)
 shape = SubResource("RectangleShape2D_u5sy4")
 
@@ -425,6 +425,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dinhu")
 text = "Play Again?"
 
 [connection signal="reset_physics" from="." to="HamsterBall" method="_on_game_reset_physics"]
+[connection signal="siren" from="HamsterBall" to="Stages/Stage1/Car" method="_on_hamster_ball_siren"]
 [connection signal="score" from="Stages/Stage1/Goal" to="." method="_on_goal_score"]
 [connection signal="score" from="Stages/Stage2/Goal" to="." method="_on_goal_score"]
 [connection signal="score" from="Stages/Stage3/Goal" to="." method="_on_goal_score"]

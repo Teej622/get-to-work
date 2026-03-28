@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5h7ejp105lr6" path="res://scenes/goal.gd" id="1_sx1j4"]
 [ext_resource type="Texture2D" uid="uid://decduocbvdmka" path="res://assets/sprites/goal-spritesheet.png" id="2_sx1j4"]
+[ext_resource type="AudioStream" uid="uid://b6xkq6iju8w8x" path="res://assets/sounds/hole.wav" id="3_w3gav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3gav"]
 atlas = ExtResource("2_sx1j4")
@@ -90,5 +91,10 @@ unique_name_in_owner = true
 position = Vector2(0, 10)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sx1j4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=294306331]
+stream = ExtResource("3_w3gav")
+volume_db = 5.474
+pitch_scale = 1.18
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

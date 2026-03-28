@@ -50,28 +50,28 @@ size = Vector2(4.6666665, 1.8333335)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5kar"]
 size = Vector2(31, 8.833334)
 
-[node name="MovingCar" type="AnimatableBody2D" unique_id=1450297456]
+[node name="MovingCar" type="AnimatableBody2D" unique_id=1450297456 groups=["Object"]]
 texture_filter = 1
 script = ExtResource("1_hqjy5")
 
-[node name="CarSprite" type="AnimatedSprite2D" parent="." unique_id=1176795172]
+[node name="CarSprite" type="AnimatedSprite2D" parent="." unique_id=1176795172 groups=["Object"]]
 position = Vector2(2.9802322e-08, 2.9802322e-08)
 scale = Vector2(0.9739584, 0.9739584)
 sprite_frames = SubResource("SpriteFrames_f0gw8")
 animation = &"RACE"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458162952]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=458162952 groups=["Object"]]
 position = Vector2(3.9166667, -4.416667)
 shape = SubResource("RectangleShape2D_r72do")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=85151418]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=85151418 groups=["Object"]]
 position = Vector2(-10.166666, 6.666667)
 shape = SubResource("RectangleShape2D_pcicw")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=964094258]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=964094258 groups=["Object"]]
 position = Vector2(11.166667, 6.75)
 shape = SubResource("RectangleShape2D_pcicw")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=343917067]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=343917067 groups=["Object"]]
 position = Vector2(4.7683716e-07, 1.4166667)
 shape = SubResource("RectangleShape2D_u5kar")

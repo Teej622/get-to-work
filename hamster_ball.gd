@@ -12,6 +12,7 @@ var shots = 0
 var is_charging = false
 var power_bar_length = 1.5
 var teleport_to
+signal siren
 
 const RADIUS = 50
 
@@ -68,6 +69,8 @@ func shoot():
 	apply_central_impulse(dir * force)
 	#only increase score if the hamster actually moved
 	if force > 0:
+		$Woosh.pitch_scale = randf_range(0.8, 1.2)
+		$Woosh.play()
 		shots += 1
 		hamster_anim.play("Roll")
 		if dir.x < 0:
@@ -100,3 +103,25 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		state.linear_velocity = Vector2.ZERO
 		state.angular_velocity = 0.0
 		teleport_to = Vector2.INF
+		
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Object") and (body.is_class("StaticBody2D") or body.is_class("AnimatableBody2D")):
+		var sprite = body.get_node_or_null("CarSprite")
+		if sprite and sprite.animation == "POLICE":
+			$Siren.play()
+		var rand_shout = randi() % 10
+		if rand_shout == 0:
+			$Shout1.play()
+		if rand_shout == 1:
+			$Shout2.play()
+	if body.is_in_group("Object"):
+		if linear_velocity.length() >= 500:
+			play_sound()
+
+	
+func play_sound():
+	var rand_audio = randi() % 2
+	if rand_audio == 0:
+		$Boing.play()
+	elif rand_audio == 1:
+		$Boioing.play()
