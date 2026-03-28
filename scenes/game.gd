@@ -5,7 +5,7 @@ extends Node2D
 @export var par = [4, 2, 2, 2]
 var stage = 0
 var shot_history = []
-var starting_pos = [Vector2(90,80), Vector2(90,80), Vector2(), Vector2()]
+var starting_pos = [Vector2(90,80), Vector2(90,80), Vector2(90,80), Vector2()]
 
 func _physics_process(delta: float) -> void:
 	
@@ -72,8 +72,3 @@ func stage_handler():
 	hamster_ball.shots = 0
 	hamster_ball.position = starting_pos[stage]
 	hamster_ball.get_node("/root/Game/HamsterBall/HamsterBall").visible = true
-
-
-
-func _on_car_killer_body_entered(body: Node2D) -> void:
-	print("car detect")
