@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 			linear_damp = 5.0
 		else:
 			linear_damp = 2
-	
+				
 
 #click release
 func _input(event: InputEvent) -> void:
