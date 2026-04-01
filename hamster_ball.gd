@@ -105,18 +105,19 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		teleport_to = Vector2.INF
 		
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Object") and (body.is_class("StaticBody2D") or body.is_class("AnimatableBody2D")):
-		var sprite = body.get_node_or_null("CarSprite")
-		if sprite and sprite.animation == "POLICE":
-			$Siren.play()
-		var rand_shout = randi() % 10
-		if rand_shout == 0:
-			$Shout1.play()
-		if rand_shout == 1:
-			$Shout2.play()
-	if body.is_in_group("Object"):
-		if linear_velocity.length() >= 500:
+	if linear_velocity.length() >= 500:
+		if body.is_in_group("Object") and (body.is_class("StaticBody2D") or body.is_class("AnimatableBody2D")):
+			var sprite = body.get_node_or_null("CarSprite")
+			if sprite and sprite.animation == "POLICE":
+				$Siren.play()
+			var rand_shout = randi() % 10
+			if rand_shout == 0:
+				$Shout1.play()
+			if rand_shout == 1:
+				$Shout2.play()
+		if body.is_in_group("Object"):
 			play_sound()
+
 
 	
 func play_sound():

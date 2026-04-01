@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ceteh75uh2oy7" path="res://scenes/moving_car.tscn" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://dtcvc427xdsco" path="res://assets/sprites/road.png" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://grtil71igkdt" path="res://scenes/tar.tscn" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://gv4icjjxi8q6" path="res://assets/sounds/01_Get_To_Work.wav" id="10_vtaks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(1152, 20)
@@ -423,6 +424,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vtaks")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kvpfn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dinhu")
 text = "Play Again?"
+
+[node name="Song" type="AudioStreamPlayer2D" parent="." unique_id=1854915280]
+stream = ExtResource("10_vtaks")
+autoplay = true
 
 [connection signal="reset_physics" from="." to="HamsterBall" method="_on_game_reset_physics"]
 [connection signal="siren" from="HamsterBall" to="Stages/Stage1/Car" method="_on_hamster_ball_siren"]

@@ -5,6 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("slowed!")
+		$Slip.play()
 		hamster_ball.mass = 1.5
 		hamster_ball.physics_material_override.friction = 1
 		hamster_ball.physics_material_override.bounce = 0.35
